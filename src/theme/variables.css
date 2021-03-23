@@ -3,6 +3,14 @@ http://ionicframework.com/docs/theming/ */
 
 /** Ionic CSS Variables **/
 :root {
+  /** app red **/
+  --ion-color-app-red: #FC314F;
+  --ion-color-app-red-rgb: 252,49,79;
+  --ion-color-app-red-contrast: #ffffff;
+  --ion-color-app-red-contrast-rgb: 255,255,255;
+  --ion-color-app-red-shade: #de2b46;
+  --ion-color-app-red-tint: #fc4661;
+
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -83,6 +91,14 @@ http://ionicframework.com/docs/theming/ */
    */
 
   body {
+      /** app red **/
+  --ion-color-app-red: #FC314F;
+  --ion-color-app-red-rgb: 252,49,79;
+  --ion-color-app-red-contrast: #ffffff;
+  --ion-color-app-red-contrast-rgb: 255,255,255;
+  --ion-color-app-red-shade: #de2b46;
+  --ion-color-app-red-tint: #fc4661;
+
     --ion-color-primary: #428cff;
     --ion-color-primary-rgb: 66,140,255;
     --ion-color-primary-contrast: #ffffff;
@@ -233,4 +249,13 @@ http://ionicframework.com/docs/theming/ */
 
     --ion-card-background: #1e1e1e;
   }
+}
+
+.ion-color-app-red {
+  --ion-color-base: var(--ion-color-app-red);
+  --ion-color-base-rgb: var(--ion-color-app-red-rgb);
+  --ion-color-contrast: var(--ion-color-app-red-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-app-red-contrast-rgb);
+  --ion-color-shade: var(--ion-color-app-red-shade);
+  --ion-color-tint: var(--ion-color-app-red-tint);
 }
