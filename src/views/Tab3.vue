@@ -11,7 +11,7 @@
           <ion-title size="large">Tab 3</ion-title>
         </ion-toolbar>
       </ion-header>
-      
+      {{getProfile}}
       <ExploreContainer name="Tab 3 page" />
     </ion-content>
   </ion-page>
@@ -20,9 +20,12 @@
 <script lang="ts">
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
 import ExploreContainer from '@/components/ExploreContainer.vue';
+import { defineComponent } from 'vue'
+import { mapGetters } from 'vuex';
 
-export default  {
+export default  defineComponent({
   name: 'Tab3',
-  components: { ExploreContainer, IonHeader, IonToolbar, IonTitle, IonContent, IonPage }
-}
+  components: { ExploreContainer, IonHeader, IonToolbar, IonTitle, IonContent, IonPage },
+  computed: mapGetters('user', {getProfile: 'getProfile'})
+})
 </script>

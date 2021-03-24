@@ -8,7 +8,7 @@
       <ion-label position="floating">Password</ion-label>
       <ion-input v-model="password" type="password" required></ion-input>
     </ion-item>
-    <ion-button expand="block" color="app-red" @click="executeLogin(email, password)" > Log In</ion-button>
+    <ion-button expand="block" color="app-red" @click="executeLogin({email, password})" > Log In</ion-button>
   </form>
 </template>
 

@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
+import store from './store/index';
 
 import './registerServiceWorker'
 
@@ -29,9 +30,12 @@ import './theme/variables.css';
 
 const app = createApp(App)
   .use(IonicVue)
+  .use(store)
   // .use(firestorePlugin) still not supported in Vue 3
   .use(router);
-  
-router.isReady().then(() => {
-  app.mount('#app');
-});
+
+store.dispatch('user/subscribeToUser').then( () => {
+  router.isReady().then(() => {
+    app.mount('#app');
+  });
+})

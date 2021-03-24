@@ -19,27 +19,27 @@
 <script lang="ts">
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
 import LoginForm from '@/components/LoginForm.vue';
-import { FirebaseAuthentication } from '@/firebase';
 import { useRouter } from 'vue-router';
 
-export default ({
+import {defineComponent} from 'vue'
+import { mapActions } from 'vuex';
+
+export default defineComponent({
   name: 'Login',
   components: { LoginForm, IonHeader, IonToolbar, IonTitle, IonContent, IonPage },
   setup() {
     const name = 'Login';
     const router = useRouter();
-    const loginAction = (email: string, password: string) => {
-      FirebaseAuthentication.signInWithEmailAndPassword(
-        email,
-        password
-      ).then( () => {
-        // TODO setup user in vuex store
-        router.push({name: 'Tab1'})
-      }).catch( err => {
-        console.log(err);
-      })
-    }
-    return { router, name, loginAction };
+    return { router, name };
+  },
+  methods: {
+    async loginAction(payload: {email: string; password: string}) {
+      const loginResult = await this.logInUser(payload);
+      if ( loginResult ) {
+        this.router.push({name: 'Tab1'})
+      }
+    },
+    ...mapActions('user', {logInUser: 'logInUser'})
   }
 })
 </script>
